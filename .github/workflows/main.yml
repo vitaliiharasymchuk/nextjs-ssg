@@ -10,16 +10,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      # Add your build, test, and deployment steps here
-      # For example:
-      - name: Modify next.config.js
+        
+      - name: Show next.config.js before update
         run: |
-          # Replace "OLD_VALUE" with "NEW_VALUE" in next.config.js
-          sed -i 's/OLD_VALUE/NEW_VALUE/g' next.config.js
+          cat next.config.js
 
-          # Replace "ANOTHER_OLD_VALUE" with "ANOTHER_NEW_VALUE" in next.config.js
-          sed -i 's/ANOTHER_OLD_VALUE/ANOTHER_NEW_VALUE/g' next.config.js
-      - name: Show updated next.config.js
+      # Add the environment variable to next.config.js using echo
+      - name: Add environment variable to next.config.js
+        run: |
+          echo "module.exports = { env: { MY_ENV_VARIABLE: "TEST" } };" > next.config.js
+
+      - name: Show next.config.js after update
         run: |
           cat next.config.js
