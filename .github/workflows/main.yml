@@ -1,0 +1,25 @@
+name: Test workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Show next.config.js before update
+        run: |
+          cat next.config.js
+          
+      # Add the environment variable to next.config.js using echo
+      - name: Add environment variable to next.config.js
+        run: |
+          echo "/** @type {import('next').NextConfig} */ \nconst nextConfig = { env: { TEST_ENV_VARIABLE: "TEST" } }; \nmodule.exports = nextConfig" > next.config.js
+
+      - name: Show next.config.js after update
+        run: |
+          cat next.config.js
