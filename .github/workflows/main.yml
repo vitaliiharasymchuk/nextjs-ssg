@@ -20,3 +20,6 @@ jobs:
 
           # Replace "ANOTHER_OLD_VALUE" with "ANOTHER_NEW_VALUE" in next.config.js
           sed -i 's/ANOTHER_OLD_VALUE/ANOTHER_NEW_VALUE/g' next.config.js
+      - name: Show updated next.config.js
+        run: |
+          cat next.config.js
