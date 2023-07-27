@@ -24,12 +24,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-
       - name: Build
         run: npm run build
-        
-      - uses: jsmrcaga/action-netlify-deploy@v2.0.0
-        with:
+
+      # Deploy to Netlify using our dev secrets
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
+        env:
           NETLIFY_AUTH_TOKEN: UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I
           NETLIFY_SITE_ID: 5ddf8a2c-9646-47d7-b764-4f67402a241e
-          NETLIFY_DEPLOY_TO_PROD: true
+        with:
+          args: deploy --dir=out --prod
