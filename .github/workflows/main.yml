@@ -14,6 +14,9 @@ jobs:
       # Add your build, test, and deployment steps here
       # For example:
       - name: Modify next.config.js
-        run: npm install replace -g
-          replace "OLD_VALUE" "NEW_VALUE" next.config.js
-          replace "ANOTHER_OLD_VALUE" "ANOTHER_NEW_VALUE" next.config.js
+        run: |
+          # Replace "OLD_VALUE" with "NEW_VALUE" in next.config.js
+          sed -i 's/OLD_VALUE/NEW_VALUE/g' next.config.js
+
+          # Replace "ANOTHER_OLD_VALUE" with "ANOTHER_NEW_VALUE" in next.config.js
+          sed -i 's/ANOTHER_OLD_VALUE/ANOTHER_NEW_VALUE/g' next.config.js
