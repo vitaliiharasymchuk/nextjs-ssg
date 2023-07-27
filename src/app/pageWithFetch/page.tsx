@@ -8,7 +8,7 @@ export default async function pageWithFetch() {
 
     return (
         <main>
-            WITHOUT ENV
+            WITH ENV AND NETLIFY
             {data.map((el: any) => (<div key={el.id}>{el.title}</div>))}
         </main>
     )
