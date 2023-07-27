@@ -14,11 +14,11 @@ jobs:
       - name: Show next.config.js before update
         run: |
           cat next.config.js
-
+          
       # Add the environment variable to next.config.js using echo
       - name: Add environment variable to next.config.js
         run: |
-          echo "module.exports = { env: { MY_ENV_VARIABLE: "TEST" } };" > next.config.js
+          echo "/** @type {import('next').NextConfig} */ const nextConfig = {} module.exports = nextConfig" > next.config.js
 
       - name: Show next.config.js after update
         run: |
