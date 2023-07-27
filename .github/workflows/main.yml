@@ -13,5 +13,7 @@ jobs:
 
       # Add your build, test, and deployment steps here
       # For example:
-      - name: Install dependencies
-        run: npm install
+      - name: Modify next.config.js
+        run: npm install replace -g
+          replace "OLD_VALUE" "NEW_VALUE" next.config.js
+          replace "ANOTHER_OLD_VALUE" "ANOTHER_NEW_VALUE" next.config.js
