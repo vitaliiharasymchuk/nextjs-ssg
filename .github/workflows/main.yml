@@ -10,16 +10,28 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Show next.config.js before update
-        run: |
-          cat next.config.js
           
       # Add the environment variable to next.config.js using echo
-      - name: Add environment variable to next.config.js
+      - name: Create .env.local filev with variable
         run: |
-          echo "/** @type {import('next').NextConfig} */ \nconst nextConfig = { env: { TEST_ENV_VARIABLE: "TEST" } }; \nmodule.exports = nextConfig" > next.config.js
+          echo "URL=https://jsonplaceholder.typicode.com/posts" > .env.local
 
-      - name: Show next.config.js after update
+      - name: Show .env.local after creation
         run: |
-          cat next.config.js
+          cat .env.local
+          
+          
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      # Deploy to Netlify using our dev secrets
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I
+          NETLIFY_SITE_ID: 5ddf8a2c-9646-47d7-b764-4f67402a241e
+        with:
+          args: deploy --dir=out --prod
