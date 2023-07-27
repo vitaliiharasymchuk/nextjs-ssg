@@ -19,3 +19,11 @@ jobs:
       - name: Show .env.local after creation
         run: |
           cat .env.local
+          
+          
+      - name: Install dependencies
+        run: npm install
+
+
+      - name: Build
+        run: npm run build
