@@ -8,7 +8,7 @@ export default async function Home() {
 
     return (
         <main>
-            WITH ENV AND NETLIFY AT TIME={process.env.WORKFLOW_RUNNING_TIME}
+            <h1>WITH ENV AND NETLIFY AT TIME={process.env.WORKFLOW_RUNNING_TIME}</h1>
             {data.map((el: any) => (<div key={el.id}>{el.title}</div>))}
         </main>
     )
