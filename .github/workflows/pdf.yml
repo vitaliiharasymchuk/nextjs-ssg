@@ -16,7 +16,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium-chromedriver
-          export CHROME_PATH=/usr/bin/chromium-browser
+          
+      - name: Cache Puppeteer dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-puppeteer-${{ hashFiles('**/package-lock.json') }}
           
       - name: Generate PDF
         run: |
