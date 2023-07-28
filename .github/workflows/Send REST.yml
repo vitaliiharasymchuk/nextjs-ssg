@@ -12,39 +12,12 @@ jobs:
       URL: "https://jsonplaceholder.typicode.com/posts"
       
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-          
-      # Add the environment variable to next.config.js using echo
-      - name: Create .env.local file with variable
-        run: |
-          echo "URL=${URL}" > .env.local
-          echo "WORKFLOW_RUNNING_TIME='$(date)'" > .env.local
-
-      - name: Show .env.local after creation
-        run: |
-          cat .env.local   
-          
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      # Deploy to Netlify using our dev secrets
-      - name: Deploy to netlify
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_AUTH_TOKEN: "UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I"
-          NETLIFY_SITE_ID: "5ddf8a2c-9646-47d7-b764-4f67402a241e"
-        with:
-          args: deploy --dir=out --prod
-          
-                # Trigger second workflow
+      # Trigger second workflow
       - name: Trigger Workflow B
         run: |
           # Make the POST request to trigger the workflow B
-          curl -X POST "https://api.github.com/repos/vitaliiharasymchuk/nextjs-ssg/dispatches" \
+          curl -X POST \
                -H "Accept: application/vnd.github.everest-preview+json" \
                -H "Authorization: token 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" \
-               --data '{"event_type": "repository_dispatch"}'
+               -d '{"event_type": "repository_dispatch"}'
+                https://api.github.com/repos/<your-username>/<your-repository>/dispatches
