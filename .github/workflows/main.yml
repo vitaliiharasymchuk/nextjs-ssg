@@ -9,7 +9,7 @@ jobs:
     
     # Define the environment variables for the job
     env:
-      NETLIFY_AUTH_TOKEN: "UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I"
+      NETLIFY_AUTH_TOKEN: ""
       NETLIFY_SITE_ID: "5ddf8a2c-9646-47d7-b764-4f67402a241e"
       URL: "https://jsonplaceholder.typicode.com/posts"
 
