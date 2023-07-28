@@ -39,3 +39,21 @@ jobs:
           NETLIFY_SITE_ID: "5ddf8a2c-9646-47d7-b764-4f67402a241e"
         with:
           args: deploy --dir=out --prod
+          
+      # Trigger second workflow
+      - name: Trigger Workflow B
+        run: |
+          REPO_OWNER="vitaliiharasymchuk"   # Replace with your GitHub username
+          REPO_NAME="nextjs-ssg"  # Replace with your repository name
+
+          # Replace 'manual-trigger' with the custom event type defined in the workflow B
+          EVENT_TYPE="generate-pdf"
+
+          # Replace 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN' with your GitHub personal access token
+          TOKEN="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"
+
+          # Make the POST request to trigger the workflow B
+          curl -X POST "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches" \
+               -H "Accept: application/vnd.github.everest-preview+json" \
+               -H "Authorization: token $TOKEN" \
+               --data '{"event_type": "'"$EVENT_TYPE"'"}'
