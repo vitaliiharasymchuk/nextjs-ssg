@@ -47,4 +47,4 @@ jobs:
           curl -X POST "https://api.github.com/repos/vitaliiharasymchuk/nextjs-ssg/dispatches" \
                -H "Accept: application/vnd.github.everest-preview+json" \
                -H "Authorization: token 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" \
-               --data '{"event_type": "'"repository_dispatch"'"}'
+               --data '{"event_type": "repository_dispatch"}'
