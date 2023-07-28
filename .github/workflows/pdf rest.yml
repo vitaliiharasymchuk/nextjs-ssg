@@ -1,7 +1,7 @@
 name: PDF REST test workflow
 
 on:
-  repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   generate-pdf:
