@@ -1,0 +1,28 @@
+name: PDF REST test workflow
+
+on:
+  repository_dispatch:
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+      
+  # Define the environment variables for the job
+    env:
+      URL: "https://willowy-marigold-b0d961.netlify.app"
+
+    steps:
+      - name: Install Puppeteer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-chromedriver
+          
+      - name: Generate PDF
+        run: |
+          /usr/bin/chromium-browser --headless --disable-gpu --print-to-pdf=generated.pdf --window-size=1920,1080 ${URL}
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf-output
+          path: generated.pdf        
