@@ -18,6 +18,6 @@ jobs:
           # Make the POST request to trigger the workflow B
           curl -X POST \
                -H "Accept: application/vnd.github.everest-preview+json" \
-               -H "Authorization: token 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" \
+               -H "Authorization: token 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" \
                -d '{"event_type": "repository_dispatch"}' \
                 https://api.github.com/repos/vitaliiharasymchuk/nextjs-ssg/dispatches
