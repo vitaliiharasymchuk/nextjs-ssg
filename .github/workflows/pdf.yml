@@ -20,7 +20,7 @@ jobs:
           
       - name: Generate PDF
         run: |
-          /usr/bin/chromium-browser --headless --disable-gpu --no-margins --print-to-pdf=generated.pdf --window-size=1920,1080 ${URL}
+          /usr/bin/chromium-browser --headless --disable-gpu --print-to-pdf=generated.pdf --window-size=1920,1080 ${URL}
           
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v2
