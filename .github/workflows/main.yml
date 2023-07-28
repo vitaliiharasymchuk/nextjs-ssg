@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         env:
-          NETLIFY_AUTH_TOKEN: UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I
-          NETLIFY_SITE_ID: 5ddf8a2c-9646-47d7-b764-4f67402a241e
+          NETLIFY_AUTH_TOKEN: "UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I"
+          NETLIFY_SITE_ID: "5ddf8a2c-9646-47d7-b764-4f67402a241e"
         with:
           args: deploy --dir=out --prod
