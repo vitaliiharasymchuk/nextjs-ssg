@@ -5,8 +5,7 @@ on:
 
 jobs:
   generate-pdf:
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
       
   # Define the environment variables for the job
     env:
