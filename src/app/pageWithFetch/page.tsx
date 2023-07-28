@@ -8,7 +8,7 @@ export default async function pageWithFetch() {
 
     return (
         <main>
-            WITH ENV AND NETLIFY
+            WITH ENV AND NETLIFY AT TIME={process.env.WORKFLOW_RUNNING_TIME}
             {data.map((el: any) => (<div key={el.id}>{el.title}</div>))}
         </main>
     )
