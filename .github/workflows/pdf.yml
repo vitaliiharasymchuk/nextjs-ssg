@@ -1,0 +1,30 @@
+name: PDF test workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Puppeteer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-chromedriver
+          export CHROME_PATH=/usr/bin/chromium-browser
+          
+      - name: Generate Screenshot
+        run: |
+          $CHROME_PATH --headless --disable-gpu --screenshot --window-size=1920,1080 https://example.com
+          
+      - name: Convert Screenshot to PDF
+        run: |
+          sudo apt-get install -y imagemagick
+          convert screenshot.png generated.pdf
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdf-output
+          path: generated.pdf          
