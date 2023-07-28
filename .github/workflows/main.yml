@@ -6,6 +6,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    # Define the environment variables for the job
+    env:
+      URL: "https://jsonplaceholder.typicode.com/posts"
 
     steps:
       - name: Checkout code
@@ -14,12 +18,11 @@ jobs:
       # Add the environment variable to next.config.js using echo
       - name: Create .env.local filev with variable
         run: |
-          echo "URL=https://jsonplaceholder.typicode.com/posts" > .env.local
+          echo "URL=${URL}" > .env.local
 
       - name: Show .env.local after creation
         run: |
           cat .env.local
-          
           
       - name: Install dependencies
         run: npm install
