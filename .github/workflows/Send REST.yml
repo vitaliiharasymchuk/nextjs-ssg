@@ -10,11 +10,7 @@ jobs:
     # Define the environment variables for the job
     env:
       URL: "https://jsonplaceholder.typicode.com/posts"
-      REPO_OWNER: "vitaliiharasymchuk" # Replace with your GitHub username
-      REPO_NAME: "nextjs-ssg" # Replace with your repository name
-      EVENT_TYPE: "repository_dispatch" # Replace 'manual-trigger' with the custom event type defined in the workflow B
-      TOKEN: "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" # Replace 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN' with your GitHub personal access token
-
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -48,7 +44,7 @@ jobs:
       - name: Trigger Workflow B
         run: |
           # Make the POST request to trigger the workflow B
-          curl -X POST "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches" \
+          curl -X POST "https://api.github.com/repos/vitaliiharasymchuk/nextjs-ssg/dispatches" \
                -H "Accept: application/vnd.github.everest-preview+json" \
-               -H "Authorization: token ${TOKEN}" \
-               --data '{"event_type": "'"${EVENT_TYPE}"'"}'
+               -H "Authorization: token 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" \
+               --data '{"event_type": "'"repository_dispatch"'"}'
