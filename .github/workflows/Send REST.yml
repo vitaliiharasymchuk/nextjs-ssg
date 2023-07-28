@@ -16,8 +16,10 @@ jobs:
       - name: Trigger Workflow B
         run: |
           # Make the POST request to trigger the workflow B
-          curl -X POST \
-               -H "Accept: application/vnd.github.everest-preview+json" \
-               -H "Authorization: token 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" \
-               -d '{"event_type": "repository_dispatch"}' \
-                https://api.github.com/repos/vitaliiharasymchuk/nextjs-ssg/dispatches
+          curl -L \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer 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" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/vitaliiharasymchuk/nextjs-ssg/actions/workflows/64554946/dispatches \
+          -d '{"ref":"topic-branch","inputs":{"name":"Mona the Octocat","home":"San Francisco, CA"}}'
