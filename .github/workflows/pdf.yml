@@ -6,6 +6,10 @@ on:
 jobs:
   generate-pdf:
     runs-on: ubuntu-latest
+    
+  # Define the environment variables for the job
+    env:
+      URL: "https://willowy-marigold-b0d961.netlify.app"
 
     steps:
       - name: Install Puppeteer
@@ -16,7 +20,7 @@ jobs:
           
       - name: Generate PDF
         run: |
-          /usr/bin/chromium-browser --headless --disable-gpu --print-to-pdf=generated.pdf --window-size=1920,1080 https://example.com
+          /usr/bin/chromium-browser --headless --disable-gpu --print-to-pdf=generated.pdf --window-size=1920,1080 ${URL}
           
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v2
