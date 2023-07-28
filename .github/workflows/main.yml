@@ -23,26 +23,13 @@ jobs:
 
       - name: Show .env.local after creation
         run: |
-          cat .env.local
-          
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}    
+          cat .env.local   
           
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
-        
-      # Cache Netlify CLI
-      - name: Cache Netlify CLI
-        uses: actions/cache@v2
-        with:
-          path: ~/.netlify
-          key: ${{ runner.os }}-netlify-${{ hashFiles('**/.netlify/state.json') }}
 
       # Deploy to Netlify using our dev secrets
       - name: Deploy to netlify
