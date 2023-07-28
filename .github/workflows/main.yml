@@ -23,7 +23,7 @@ jobs:
 
       - name: Show .env.local after creation
         run: |
-          cat .env.local
+          cat .env.local   
           
       - name: Install dependencies
         run: npm install

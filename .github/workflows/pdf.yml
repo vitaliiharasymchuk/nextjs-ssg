@@ -6,7 +6,7 @@ on:
 jobs:
   generate-pdf:
     runs-on: ubuntu-latest
-    
+      
   # Define the environment variables for the job
     env:
       URL: "https://willowy-marigold-b0d961.netlify.app"
@@ -16,7 +16,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium-chromedriver
-          export CHROME_PATH=/usr/bin/chromium-browser
           
       - name: Generate PDF
         run: |
