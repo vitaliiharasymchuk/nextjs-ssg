@@ -141,9 +141,9 @@ a {
         --card-rgb: 100, 100, 100;
         --card-border-rgb: 200, 200, 200;
     }
-}
 
-@page {
-    margin: 0;
-    size: landscape;
+    @page {
+        margin: 0;
+        size: 1920px 963px;
+    }
 }
