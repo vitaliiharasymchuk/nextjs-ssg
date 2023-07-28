@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     #runs-on: ubuntu-latest
-    runs-on: alpine-latest
+    runs-on: windows-latest
     
     # Define the environment variables for the job
     env:
