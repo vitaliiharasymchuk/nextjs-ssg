@@ -12,7 +12,7 @@ jobs:
       URL: "https://jsonplaceholder.typicode.com/posts"
       REPO_OWNER: "vitaliiharasymchuk" # Replace with your GitHub username
       REPO_NAME: "nextjs-ssg" # Replace with your repository name
-      EVENT_TYPE: "generate-pdf" # Replace 'manual-trigger' with the custom event type defined in the workflow B
+      EVENT_TYPE: "repository_dispatch" # Replace 'manual-trigger' with the custom event type defined in the workflow B
       TOKEN: "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" # Replace 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN' with your GitHub personal access token
 
     steps:
