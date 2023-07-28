@@ -50,7 +50,7 @@ jobs:
           EVENT_TYPE="generate-pdf"
 
           # Replace 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN' with your GitHub personal access token
-          TOKEN="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"
+          TOKEN="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"
 
           # Make the POST request to trigger the workflow B
           curl -X POST "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches" \
