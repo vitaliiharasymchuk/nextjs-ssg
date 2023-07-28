@@ -9,9 +9,7 @@ jobs:
     
     # Define the environment variables for the job
     env:
-      #NETLIFY_AUTH_TOKEN: "UO8Kl-kafR0bnP4uAf4sS-HsMoUupKk6FwauB85RL2I"
-      #NETLIFY_SITE_ID: "5ddf8a2c-9646-47d7-b764-4f67402a241e"
-      URL: https://jsonplaceholder.typicode.com/posts
+      URL: "https://jsonplaceholder.typicode.com/posts"
 
     steps:
       - name: Checkout code
@@ -20,7 +18,8 @@ jobs:
       # Add the environment variable to next.config.js using echo
       - name: Create .env.local filev with variable
         run: |
-          echo "URL=${URL} WORKFLOW_RUNNING_TIME=$(date)" > .env.local
+          echo "URL=${URL}" > .env.local
+          echo "WORKFLOW_RUNNING_TIME='$(date)'" > .env.local
 
       - name: Show .env.local after creation
         run: |
