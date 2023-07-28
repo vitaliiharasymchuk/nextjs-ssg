@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  write-env:
     runs-on: ubuntu-latest
     
     # Define the environment variables for the job
@@ -24,14 +24,17 @@ jobs:
       - name: Show .env.local after creation
         run: |
           cat .env.local   
-          
+                
+  build:
+    runs-on: ubuntu-latest
+    steps: 
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
 
-      # Deploy to Netlify using our dev secrets
+     # Deploy to Netlify using our dev secrets
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         env:
@@ -39,3 +42,5 @@ jobs:
           NETLIFY_SITE_ID: "5ddf8a2c-9646-47d7-b764-4f67402a241e"
         with:
           args: deploy --dir=out --prod
+  
+
