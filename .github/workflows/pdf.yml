@@ -16,7 +16,7 @@ jobs:
           
       - name: Generate Screenshot
         run: |
-          $CHROME_PATH --headless --disable-gpu --screenshot --window-size=1920,1080 https://example.com
+          /usr/bin/chromium-browser --headless --disable-gpu --screenshot --window-size=1920,1080 https://example.com
           
       - name: Convert Screenshot to PDF
         run: |
