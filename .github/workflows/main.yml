@@ -20,7 +20,7 @@ jobs:
       # Add the environment variable to next.config.js using echo
       - name: Create .env.local filev with variable
         run: |
-          echo "URL=${URL} WORKFLOW_RUNNING_TIME=$(date)" > .env.local
+          echo "URL=${URL} WORKFLOW_RUNNING_TIME='$(date)'" > .env.local
 
       - name: Show .env.local after creation
         run: |
