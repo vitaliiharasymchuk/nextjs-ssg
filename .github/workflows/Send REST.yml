@@ -48,7 +48,7 @@ jobs:
       - name: Trigger Workflow B
         run: |
           # Make the POST request to trigger the workflow B
-          curl -X POST "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches" \
+          curl -X POST "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches" \
                -H "Accept: application/vnd.github.everest-preview+json" \
-               -H "Authorization: token $TOKEN" \
-               --data '{"event_type": "'"$EVENT_TYPE"'"}'
+               -H "Authorization: token ${TOKEN}" \
+               --data '{"event_type": "'"${EVENT_TYPE}"'"}'
