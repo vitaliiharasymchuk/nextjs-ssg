@@ -2,6 +2,11 @@ name: PDF REST test workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      test: 
+        description: "Decription of the test parameter."
+        required: true
+        default: 'default_value'
 
 jobs:
   generate-pdf:
@@ -9,7 +14,7 @@ jobs:
       
   # Define the environment variables for the job
     env:
-      URL: "https://willowy-marigold-b0d961.netlify.app"
+      URL: ${github.event.inputs.test}
 
     steps:
       - name: Install Puppeteer
